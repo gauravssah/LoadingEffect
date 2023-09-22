@@ -1,54 +1,128 @@
-// let bgimage = document.querySelector(".bgimage");
-// let loding = document.querySelector(".loding");
-
-// console.log(loding.textContent)
-
-// let num = 0.1
-// let textnumber = 20;
-// const increment = () => {
-//     bgimage.style.opacity = 0 + num;
-//     num += 0.1;
-//     console.log(num)
-//     loding.textContent = `${textnumber}%`
-//     textnumber += 10;
-//     if (num >= 1) {
-//         clearInterval(setibt); // Stop the interval when num >= 1
-//         loding.style.display = "none"
-//     }
-// }
-
-
-
-// let setibt = setInterval(() => {
-//     increment()
-// }, 100);
-
-
-
-
 let bgimage = document.querySelector(".bgimage");
-let loading = document.querySelector(".loding");
+let loding = document.querySelector(".loding");
 
-let startTime = Date.now();
-let duration = 5000; // Set the duration in milliseconds (e.g., 5000ms = 5 seconds)
+let startingTime = Date.now()
 
-const updateOpacityAndText = () => {
-    let currentTime = Date.now();
-    let elapsedTime = currentTime - startTime;
+let defaultDuration = 5000;
 
-    if (elapsedTime >= duration) {
-        clearInterval(intervalId); // Stop the interval after the specified duration
-        loading.style.display = "none";
-        bgimage.style.opacity = 1; // Ensure opacity is fully set to 1 after the duration
-        loading.textContent = "100%";
+let updateTextAndOpcity = () => {
+    let functionstartingtime = Date.now();
+
+    let functionRunningTime = (functionstartingtime - startingTime);
+
+
+    if (functionRunningTime >= defaultDuration) {
+        clearInterval(setIntervaId);
+        bgimage.style.opacity = 1;
+        loding.textContent = `${100}%`
+        loding.style.display = "none";
+
     } else {
-        let opacity = elapsedTime / duration; // Calculate opacity based on elapsed time
-        let percentage = Math.floor((elapsedTime / duration) * 100); // Calculate percentage based on elapsed time
-
+        let opacity = (functionRunningTime / defaultDuration);
         bgimage.style.opacity = opacity;
-        loading.textContent = `${percentage}%`;
+
+        let persentage = Math.floor(opacity * 100);
+        loding.textContent = `${persentage}%`
     }
-};
 
-let intervalId = setInterval(updateOpacityAndText, 100); // Update every 100 milliseconds
+}
 
+
+let setIntervaId = setInterval(() => {
+    updateTextAndOpcity()
+}, 50);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------
+
+
+
+// // Get references to HTML elements with specific class names.
+// let bgimage = document.querySelector(".bgimage");
+// let loading = document.querySelector(".loding");
+
+// // Record the current time.
+// let startTime = Date.now();
+// console.log(startTime)
+
+// // Specify a duration in milliseconds (e.g., 5000ms = 5 seconds).
+// let duration = 5000;
+
+// // Create a function to update the opacity and loading text.
+// const updateOpacityAndText = () => {
+//     // Get the current time.
+//     let currentTime = Date.now();
+//     console.log(currentTime)
+
+//     // Calculate how much time has elapsed since the start.
+//     let elapsedTime = currentTime - startTime;
+//     console.log(elapsedTime)
+
+//     // Check if the elapsed time is greater than or equal to the specified duration.
+//     if (elapsedTime >= duration) {
+//         // If yes, clear the interval (stop the animation).
+//         clearInterval(intervalId);
+
+//         // Hide the loading element.
+//         loading.style.display = "none";
+
+//         // Ensure opacity is fully set to 1.
+//         bgimage.style.opacity = 1;
+
+//         // Set loading text content to "100%".
+//         loading.textContent = "100%";
+//     } else {
+//         // Calculate the opacity based on elapsed time.
+//         let opacity = elapsedTime / duration;
+//         console.log(opacity)
+
+//         // Calculate the percentage completion based on elapsed time.
+//         let percentage = Math.floor(opacity * 100);
+//         console.log(percentage)
+//         // Set the opacity of the background image.
+//         bgimage.style.opacity = opacity;
+
+//         // Set the loading text content to show the percentage completion.
+//         loading.textContent = `${percentage}%`;
+//     }
+// };
+
+// // Call the updateOpacityAndText function every 100 milliseconds.
+// let intervalId = setInterval(updateOpacityAndText, 100);

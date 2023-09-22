@@ -30,7 +30,7 @@ body {
 .loding {
     position: absolute;
     top: 50%;
-    font-size: 20px;
+    font-size: 50px;
     z-index: 5;
     color: rgb(255, 255, 255);
     font-weight: bold;
